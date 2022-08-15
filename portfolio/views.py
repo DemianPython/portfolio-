@@ -1,8 +1,8 @@
-from unicodedata import name
 from django.shortcuts import render
+from portfolioapp.models import Project
 
 def index(request):
-    return render(request, 'index.html')
+    project = Project.objects.all()
+    context = {'project':project}
+    return render(request, 'index.html', context=context)
 
-def contact(request):
-    return render(request, 'contacto.html')
